@@ -1,138 +1,279 @@
-# Nithin-s-Portfolio
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nithin Satya Kumar - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            text-align: center;
-        }
-        header {
-            background: #0073e6;
-            color: white;
-            padding: 20px;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        section {
-            padding: 50px 20px;
-        }
-        .project {
-            background: white;
-            padding: 20px;
-            margin: 10px auto;
-            width: 80%;
-            border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        footer {
-            background: #333;
-            color: white;
-            padding: 10px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Nithin Satya Kumar</h1>
-        <p>Mechanical Engineering | AI & ML Enthusiast</p>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+# CAD Design Backend API
 
-    <section id="about" class="fade-in">
-        <h2>About Me</h2>
-        <p>Third-year B.Tech Mechanical Engineering student with a Minor in AI and ML. Passionate about integrating AI in mechanical systems.</p>
-        <h3>Technical Skills</h3>
-        <ul>
-            <li>Python (Intermediate)</li>
-            <li>Java (Basic)</li>
-            <li>Data Structures</li>
-            <li>AI & ML</li>
-        </ul>
-    </section>
+A complete, production-ready backend for an AI-powered mechanical/CAD design software MVP with comprehensive features for project management, file handling, and real-time collaboration.
 
-    <section id="projects" class="fade-in">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Smart Shopping Cart using Arduino</h3>
-            <p>Automating shopping tasks using sensors and Arduino.</p>
-        </div>
-        <div class="project">
-            <h3>Crystal Clear Vision</h3>
-            <p>Revolutionizing cataract prediction using transfer learning.</p>
-        </div>
-    </section>
+## 🚀 Features
 
-    <section id="blog" class="fade-in">
-        <h2>Blog</h2>
-        <p>Stay tuned for posts on AI, ML, and Mechanical Engineering innovations.</p>
-    </section>
+### Core Features
+- **User Authentication System** - JWT-based authentication with refresh tokens
+- **Project CRUD Operations** - Full project lifecycle management
+- **Secure File Handling** - Upload, download, and manage CAD files
+- **Real-time Collaboration** - WebSocket-based real-time features
+- **AI-assisted Design Suggestions** - OpenAI GPT-4 integration for design insights
+- **Comprehensive Security** - Rate limiting, validation, and security headers
 
-    <section id="contact" class="fade-in">
-        <h2>Contact</h2>
-        <p>Email: bnskumar399@gmail.com</p>
-        <p>Phone: 7893748343</p>
-    </section>
+### Technical Features
+- **RESTful API** with comprehensive documentation
+- **Role-based Access Control** - User, Admin, and Premium roles
+- **File Version Management** - Track and manage project versions
+- **Real-time Notifications** - WebSocket-based project updates
+- **Comprehensive Testing** - Jest test suite with high coverage
+- **Production-ready Logging** - Winston-based structured logging
+- **API Documentation** - Swagger/OpenAPI 3.0 documentation
 
-    <footer>
-        <p>&copy; 2025 Nithin Satya Kumar</p>
-    </footer>
+## 🛠 Tech Stack
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const sections = document.querySelectorAll(".fade-in");
-            const options = {
-                threshold: 0.1
-            };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    }
-                });
-            }, options);
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
-</body>
-</html>
+- **Backend**: Node.js with Express.js
+- **Database**: MongoDB with Mongoose ODM
+- **Authentication**: JWT with refresh tokens
+- **AI Integration**: OpenAI GPT-4
+- **Real-time**: Socket.IO WebSockets
+- **File Handling**: Multer with secure validation
+- **Documentation**: Swagger/OpenAPI 3.0
+- **Testing**: Jest with MongoDB Memory Server
+- **Logging**: Winston
+- **Security**: Helmet, rate limiting, CORS
+
+## 📁 Project Structure
+
+```
+├── config/                 # Configuration files
+│   ├── config.js           # Main configuration
+│   └── database.js         # Database connection
+├── controllers/            # Route controllers
+│   ├── authController.js   # Authentication logic
+│   ├── projectController.js # Project management
+│   └── fileController.js   # File operations
+├── middlewares/            # Custom middleware
+│   ├── auth.js            # Authentication middleware
+│   ├── security.js        # Security & validation
+│   └── errorHandler.js    # Error handling
+├── models/                 # Database models
+│   ├── User.js            # User schema
+│   └── Project.js         # Project schema
+├── routes/                 # API routes
+│   ├── index.js           # Main router
+│   ├── auth.js            # Authentication routes
+│   ├── projects.js        # Project routes
+│   └── files.js           # File routes
+├── services/               # Business logic services
+│   ├── aiService.js       # OpenAI integration
+│   ├── fileService.js     # File handling
+│   ├── logger.js          # Logging service
+│   └── websocketService.js # Real-time features
+├── tests/                  # Test suites
+│   ├── controllers/       # Controller tests
+│   ├── models/           # Model tests
+│   └── setup.js          # Test configuration
+├── docs/                   # Documentation
+│   └── swagger.js         # Swagger configuration
+├── uploads/               # File storage
+└── server.js              # Main application entry
+```
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher)
+- MongoDB (local or cloud)
+- OpenAI API key (optional, for AI features)
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd cad-design-backend
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Update `.env` with your configuration:
+   ```env
+   # Database
+   MONGODB_URI=mongodb://localhost:27017/cad_design_db
+   
+   # JWT Secrets
+   JWT_SECRET=your-super-secure-jwt-secret-key-here
+   JWT_REFRESH_SECRET=your-super-secure-refresh-secret-key-here
+   
+   # OpenAI (Optional)
+   OPENAI_API_KEY=your-openai-api-key-here
+   
+   # Server
+   PORT=5000
+   NODE_ENV=development
+   ```
+
+4. **Start the server**
+   ```bash
+   # Development mode
+   npm run dev
+   
+   # Production mode
+   npm start
+   ```
+
+## 📚 API Documentation
+
+Once the server is running, visit:
+- **API Documentation**: `http://localhost:5000/api/docs`
+- **Health Check**: `http://localhost:5000/health`
+- **API Root**: `http://localhost:5000/api`
+
+## 🧪 Testing
+
+Run the comprehensive test suite:
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
+```
+
+## 🔐 Authentication
+
+The API uses JWT tokens for authentication:
+
+1. **Register** or **Login** to get access tokens
+2. Include the token in requests: `Authorization: Bearer <token>`
+3. Tokens expire after 24 hours (configurable)
+4. Use refresh tokens to get new access tokens
+
+### Example Authentication Flow
+
+```javascript
+// 1. Register
+POST /api/auth/register
+{
+  "username": "johndoe",
+  "email": "john@example.com",
+  "password": "SecurePass123!",
+  "firstName": "John",
+  "lastName": "Doe"
+}
+
+// 2. Login
+POST /api/auth/login
+{
+  "identifier": "john@example.com",
+  "password": "SecurePass123!"
+}
+
+// 3. Use token for authenticated requests
+GET /api/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+
+## 📁 File Upload
+
+Supported CAD file types:
+- `.dwg` - AutoCAD Drawing
+- `.dxf` - Drawing Exchange Format
+- `.step/.stp` - Standard for Exchange of Product Data
+- `.iges/.igs` - Initial Graphics Exchange Specification
+- `.stl` - STereoLithography
+- `.obj` - Wavefront OBJ
+
+Maximum file size: 50MB (configurable)
+
+## 🤖 AI Features
+
+With OpenAI API key configured, the system provides:
+
+1. **Design Suggestions** - AI-powered design recommendations
+2. **Optimization Analysis** - Design optimization opportunities
+3. **Design Validation** - Engineering validation and safety checks
+4. **Material Recommendations** - Suitable materials for designs
+
+## 🔄 Real-time Features
+
+WebSocket-based real-time collaboration:
+
+- **Project Collaboration** - Multiple users working on projects
+- **File Upload Progress** - Real-time upload status
+- **Cursor Position Tracking** - See where others are working
+- **Design Comments** - Real-time commenting system
+- **User Presence** - Online/offline status
+- **Typing Indicators** - See when others are typing
+
+## 🛡 Security Features
+
+- **JWT Authentication** with refresh tokens
+- **Rate Limiting** - Prevents abuse
+- **Input Validation** - Comprehensive request validation
+- **Security Headers** - Helmet.js security middleware
+- **File Type Validation** - Secure file upload handling
+- **CORS Configuration** - Cross-origin request handling
+- **Password Hashing** - bcrypt for secure password storage
+
+## 📊 Monitoring & Logging
+
+- **Structured Logging** with Winston
+- **Request Tracing** with unique request IDs
+- **Error Tracking** with detailed error information
+- **Performance Monitoring** with request timing
+- **Health Check Endpoint** for monitoring systems
+
+## 🚀 Deployment
+
+The application is production-ready with:
+
+- **Environment-based Configuration**
+- **Graceful Shutdown** handling
+- **Database Connection Pooling**
+- **Comprehensive Error Handling**
+- **Security Best Practices**
+- **Logging and Monitoring**
+
+### Docker Deployment (Future Enhancement)
+
+```dockerfile
+# Example Dockerfile structure
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY . .
+EXPOSE 5000
+CMD ["npm", "start"]
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests for new functionality
+5. Run the test suite
+6. Submit a pull request
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 👤 Author
+
+**Nithin Satya Kumar**
+- Email: bnskumar399@gmail.com
+- LinkedIn: [Nithin Satya Kumar](https://linkedin.com/in/nithin-satya-kumar)
+- Mechanical Engineering | AI & ML Enthusiast
+
+---
+
+## 🎯 Project Status
+
+This is a complete, production-ready backend implementation for an AI-powered CAD design software MVP. All core features are implemented and tested, ready for integration with frontend applications and deployment to production environments.
